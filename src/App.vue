@@ -1,17 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="https://vuejs.org/images/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <InputJs value="JavaScript-Komponente" />
+    <br />
+    <Input
+      value="SFC-Komponente"
+      :label="'SFC-Komponente'"
+      @new-event="newEventHandler"
+    />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import InputJs from './components/Input.js';
+import Input from './components/Input.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    InputJs,
+    Input,
+  },
+  data() {
+    return { name: 'Test-Komponente' };
+  },
+  methods: {
+    newEventHandler(data) {
+      console.log('new event handler:', data);
+    },
   },
 };
 </script>
